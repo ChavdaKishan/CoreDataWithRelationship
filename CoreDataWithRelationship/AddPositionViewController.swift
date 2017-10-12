@@ -32,6 +32,7 @@ class AddPositionViewController: UIViewController
         super.viewWillAppear(true)
     }
     
+    // MARK: - BtnClick
     @IBAction func SaveBtn(_ sender: UIButton)
     {
         if Segment.selectedSegmentIndex == PositionType.EmployeeType.rawValue
