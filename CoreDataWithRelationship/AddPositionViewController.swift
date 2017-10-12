@@ -27,6 +27,10 @@ class AddPositionViewController: UIViewController
     {
         super.viewDidLoad()
     }
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(true)
+    }
     
     @IBAction func SaveBtn(_ sender: UIButton)
     {
@@ -60,6 +64,7 @@ class AddPositionViewController: UIViewController
                 for dis in tmp as [NSManagedObject]
                 {
                     context.delete(dis)
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 }
             }
             catch
@@ -76,6 +81,7 @@ class AddPositionViewController: UIViewController
                 for dis in tmp as [NSManagedObject]
                 {
                     context.delete(dis)
+                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
                 }
             }
             catch

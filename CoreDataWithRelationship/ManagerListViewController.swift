@@ -20,9 +20,10 @@ class ManagerListViewController: UIViewController,UITableViewDataSource,UITableV
         self.title = "Manager List"
         fetchData()
     }
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool)
+    {
         super.viewWillAppear(true)
-        Tableview.reloadData()
+        self.Tableview.reloadData()
     }
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -71,8 +72,8 @@ class ManagerListViewController: UIViewController,UITableViewDataSource,UITableV
             
             let sort = NSSortDescriptor(key: "name", ascending: true)
             fetchRequest.sortDescriptors = [sort]
-            
             arr = try context.fetch(fetchRequest) as! [Manager]
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
         }
         catch
         {

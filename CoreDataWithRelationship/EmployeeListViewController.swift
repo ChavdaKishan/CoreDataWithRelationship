@@ -24,6 +24,11 @@ class EmployeeListViewController: UIViewController,UITableViewDelegate,UITableVi
         self.title = "Employee List"
         fetch()
     }
+    override func viewWillAppear(_ animated: Bool)
+    {
+        super.viewWillAppear(true)
+        self.Tableview.reloadData()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
